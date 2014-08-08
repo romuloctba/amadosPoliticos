@@ -10,8 +10,11 @@ Live em [http://rcdev.com.br/politicos]
 
 - baixe o repo
 
-- 'npm install'
+- `npm install`
 
-- 'grunt serve'
+- `grunt serve`
 
 - Se mudar algo e quiser publicar, use `grunt build` e faça up da pasta DIST
+
+
+build with <3 , scafolded with [yeoman.io]
