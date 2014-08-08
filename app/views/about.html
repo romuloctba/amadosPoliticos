@@ -1,0 +1,44 @@
+<form>
+	<select ng-model="estado">
+		<option>PR</option>
+		<option>SP</option>
+	</select>
+	<select ng-model="cargo">
+		<option value="1">Presidente</option>
+		<option value="3">Governador</option>
+		<option value="5">Senador</option>
+		<option value="6">Deputado Federal</option>
+		<option value="7">Deputado Estadual</option>
+		<option value="8">Deputado Distrital</option>
+	</select>
+	
+	<button ng-click="lista('{{estado}}', '{{cargo}}')">VAI!</button>
+</form>
+Estado: {{estado}} - Cargo: {{cargo}}
+<p>Usando a url {{url}}</p>
+
+
+<hr />
+
+<table class="table table-hover table-striped">
+<tr>
+	<td>Nome - Idade - Partido</td>
+	<td>Previsão de gasto</td>
+	<td>Ocupação</td>
+	<td>Foto (desculpa)</td>
+</tr>
+ <tr ng-repeat="item in data">
+	<td>
+		<a ng-href="#/candidato/{{item.id}}">{{item.nome}} - {{item.idade}} Anos - {{item.partido}}</a>
+	</td>
+	<td>
+		<span>{{item.previsao | currency : R$}}</span>
+		<br />
+		<span>ID: {{item.id}}</span>
+	</td>
+	<td>{{item.ocupacao}}</td>
+	<td>
+		<img ng-src="{{item.foto}}" alt="{{item.nome}}" style="max-height: 60px; width: auto" class="img-responsive img-rounded">
+	</td>
+</tr>
+</table>

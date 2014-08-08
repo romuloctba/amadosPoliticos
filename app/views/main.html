@@ -1,0 +1,79 @@
+<p>Escolha seu estado e algum cargo para ver os candidatos., e clique em <i class="glyphicon glyphicon-flash"></i> VAI!! <br /><strong>Depois, clique nos candidados e veja quem investe dinheiro nele.</strong></p>
+<form>
+
+<div class="form-group row">
+<div class="col-md-2 col-lg-2 col-sm-4">
+  <select ng-model="estado" class="form-control">
+    <option value="AC">AC</option>
+<option value="AL">AL</option>
+<option value="AM">AM</option>
+<option value="AP">AP</option>
+<option value="BA">BA</option>
+<option value="CE">CE</option>
+<option value="DF">DF</option>
+<option value="ES">ES</option>
+<option value="GO">GO</option>
+<option value="MA">MA</option>
+<option value="MG">MG</option>
+<option value="MS">MS</option>
+<option value="MT">MT</option>
+<option value="PA">PA</option>
+<option value="PB">PB</option>
+<option value="PE">PE</option>
+<option value="PI">PI</option>
+<option value="PR">PR</option>
+<option value="RJ">RJ</option>
+<option value="RN">RN</option>
+<option value="RO">RO</option>
+<option value="RR">RR</option>
+<option value="RS">RS</option>
+<option value="SC">SC</option>
+<option value="SE">SE</option>
+<option value="SP">SP</option>
+<option value="TO">TO</option>
+  </select>
+  </div>
+  <div class="col-md-8 col-lg-8 col-sm-6">
+  <select ng-model="cargo" class="form-control">
+    <option value="1">Presidente</option>
+    <option value="3">Governador</option>
+    <option value="5">Senador</option>
+    <option value="6">Deputado Federal</option>
+    <option value="7">Deputado Estadual</option>
+    <option value="8">Deputado Distrital</option>
+  </select>
+  </div>
+  <div class="col-md-2 col-lg-2 col-sm-2"><button ng-click="lista('{{estado}}', '{{cargo}}')" class="text-warning"> <i class="glyphicon glyphicon-flash"></i> VAI!</button>
+  </div>
+  </form>
+  </div>
+  
+
+Estado: {{estado}} - Cargo: {{cargo}}
+<p>Consultando a url {{url}}</p>
+
+
+<hr />
+
+<table class="table table-hover table-striped" ng-show="data">
+<tr>
+  <td>Nome - Idade - Partido</td>
+  <td>Previsão de gasto</td>
+  <td>Ocupação</td>
+  <td>Foto (eca)</td>
+</tr>
+ <tr ng-repeat="item in data">
+  <td>
+    <a ng-href="#/candidato/{{item.id}}">{{item.nome}} - {{item.idade}} Anos - {{item.partido}}</a>
+  </td>
+  <td>
+    <span>{{item.previsao | currency : R$}}</span>
+  </td>
+  <td>{{item.ocupacao}}</td>
+  <td>
+ <a ng-href="#/candidato/{{item.id}}">
+    <img ng-src="{{item.foto}}" alt="{{item.nome}}" style="max-height: 60px; width: auto" class="img-responsive img-rounded">
+  </a>
+  </td>
+</tr>
+</table>
