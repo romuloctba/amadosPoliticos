@@ -33,7 +33,10 @@ angular.module('transpAppApp')
       if(data){
       $scope.data = data;
       $scope.message = [];
+      $scope.pageEnd = false;
     } if (data == ""){
+      $scope.pageEnd = true;
+      $scope.pageFirst = false;
       $scope.message = {
         classe:"success",
         text: "Sem resultados por estes parâmetros. Tente outra busca"
@@ -51,4 +54,15 @@ angular.module('transpAppApp')
       $scope.offset = proxima;
       $scope.lista($scope.estado, $scope.cargo, $scope.offset*$scope.limit, $scope.limit);
     } //fim proxima();
+    $scope.anterior = function(){
+      var proxima = $scope.offset-$scope.limit+1;
+      $scope.offset = proxima;
+      if($scope.offset >= 0) {
+      $scope.lista($scope.estado, $scope.cargo, $scope.offset*$scope.limit, $scope.limit);
+    } else {
+      $scope.pageFirst = true;
+    }
+    } //fim proxima();
+  
   });
+
