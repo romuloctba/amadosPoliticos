@@ -2,14 +2,16 @@
 
 Usando API do [http://dev.transparencia.org.br/api-portal/hackathon]
 
+Live em [http://rcdev.com.br/politicos]
+
 ##Como usar:
 
 - Instale o nodejs [http://www.nodejs.org] e o grunt [http://gruntjs.com/]
 
 - baixe o repo
 
-- ´npm install´
+- 'npm install'
 
-- ´grunt serve´
+- 'grunt serve'
 
-- Se mudar algo e quiser publicar, use ´grunt build´ e faça up da pasta DIST
+- Se mudar algo e quiser publicar, use `grunt build` e faça up da pasta DIST
